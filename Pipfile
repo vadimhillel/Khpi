@@ -8,6 +8,8 @@ numpy = "*"
 
 [dev-packages]
 pyinputplus = "*"
+requests = "*"
+flake8 = "*"
 
 [requires]
 python_version = "3.11"
