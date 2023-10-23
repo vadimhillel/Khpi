@@ -1,6 +1,3 @@
-N = ord("P") % 5 + 1
-print(N)
-
 import random
 import matplotlib.pyplot as plt
 
