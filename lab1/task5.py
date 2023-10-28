@@ -2,7 +2,7 @@ import numpy as np
 import pyinputplus as pyip
 
 def heronfunc(i: int, sides: list):
-    while True:
+    for i in range(3):
         inp = pyip.inputNum(f"Enter {i+1} side: ")
         sides.append(inp)
         if len(sides) != 3:
