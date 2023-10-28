@@ -20,8 +20,8 @@ class Cylindr(CylindrInfo):
 def main():
     res = Cylindr(2, 3.5, 7)
     # print(res.paintfunc())
-    print("Surface area of the cylinder:", res.squarefunc(),
-               "\nTotal amount of paint:", res.paintfunc())
+    print("Surface area of the cylinder:", "%.3f"% res.squarefunc(),
+               "\nTotal amount of paint:", "%.3f"% res.paintfunc())
     
 if __name__ == "__main__":
     main()

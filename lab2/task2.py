@@ -7,7 +7,7 @@ class Sides:
         self._sideslist = sideslist
         
     def inp(self, i: int):
-        while True:
+        for i in range(3):
             self._sideslist.append(pyip.inputNum(f"Enter {i+1} side: "))
             
             if len(self._sideslist) != 3:
