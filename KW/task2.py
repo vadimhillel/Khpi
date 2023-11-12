@@ -1,34 +1,23 @@
-import pyinputplus as pyip
+# list1 = [16, 17, 14, 21, 16, 13, 10, 11, 16, 17]
+# list2 = [18, 17, 18, 13, 18, 21, 24, 23, 16, 17]
+# list3 = [0, 0, 2, 0, 0, 0, 0, 0, 2, 0]
 
+# print("Number\t\tlist1\t\tlist2\t\tlist3")
+# print(90*"=")
 
-class Lists:
-    def __init__(self, list1: list, list2: list) -> None:
-        self._list1 = list1
-        self._list2 = list2
+# for i, element1, element2, element3 in zip(range(9), list1, list2, list3):
+#     print('{:^6}\t\t{:^5}\t\t{:^5}\t\t{:^5}'
+#           .format(i+1, element1, element2, element3))
 
-class Work(Lists):
-    
-    def inpfunc(self):
-        for n in range(2):
-            print(f"Enter 3 digits for {n+1} list: ")
-            for i in range(3):
-                inp = pyip.inputNum()
-                if len(self._list1) < 3:
-                    self._list1.append(inp)
-                else: 
-                    self._list2.append(inp)
-        print(f"\n1st list is {self._list1}", 
-              f"\n2nd list is {self._list2}\n")
             
-    def function(self) -> list:
-        for i in self._list2:
-            self._list1 = [0 if x==i else x for x in self._list1]
+def function(list1: list, list2: list) -> list:
+    print(f"\n1st list is {list1}", 
+              f"\n2nd list is {list2}\n")
+    for i in list2:
+        list1 = [0 if x==i else x for x in list1]
+    return list1
+
+print(function([1, 2, 7, 7, 5, 5, 2, 4],
+               [3, 8, 9, 4, 2, 2, 1, 5]))
+    
   
-def main():
-    w = Work([], [])
-    w.inpfunc()
-    w.function()
-    print(w._list1)
-    
-main()
-    
