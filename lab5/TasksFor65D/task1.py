@@ -37,11 +37,8 @@ class MyFunctions:
         for i in range(len(self._list1)):
             for j in self._list2:
                 if self._list1[i] == j:
-<<<<<<< HEAD
-                    self._list1 = self._list1[:i] + [0] + self._list1[i+1 :]
-=======
                     self._list1 = self._list1[:i] + [0] + self._list1[i+1:] # flake8: noqa
->>>>>>> 9ccc87e (📄 lab5 for KHPIUNIV)
+
         return self._list1
 
     def source_list(self) -> None:
