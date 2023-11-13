@@ -37,7 +37,8 @@ class MyFunctions:
         for i in range(len(self._list1)):
             for j in self._list2:
                 if self._list1[i] == j:
-                    self._list1 = self._list1[:i] + [0] + self._list1[i+1:] # flake8: noqa
+                    # flake8: noqa
+                    self._list1 = self._list1[:i] + [0] + self._list1[i+1:] 
 
         return self._list1
 
