@@ -3,7 +3,7 @@ from task2 import sum_dict_vals
 
 def change_key(d: dict, s_old: str, s_new: str) -> dict:
     d = sum_dict_vals(create_dict(10), 'total')
-    if not s_old in d.keys():
+    if s_old not in d.keys():
         raise (KeyError, "No key like that in d!")
     d[s_new] = d.pop(s_old)
     return d
