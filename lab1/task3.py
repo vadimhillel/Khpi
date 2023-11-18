@@ -6,6 +6,5 @@ def main():
     print(apples // studs) 
     print(apples % studs)
 
-for i in range(3):
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()

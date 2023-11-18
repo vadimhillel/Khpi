@@ -14,14 +14,13 @@ class Cylindr(CylindrInfo):
         return sq
     
     def paintfunc(self):
-        amountofpaint = self.c * Cylindr.squarefunc(self)
+        amountofpaint = Cylindr.squarefunc(self) * self.c
         return amountofpaint
         
 def main():
     res = Cylindr(2, 3.5, 7)
-    # print(res.paintfunc())
-    print("Surface area of the cylinder:", "%.3f"% res.squarefunc(),
-               "\nTotal amount of paint:", "%.3f"% res.paintfunc())
+    print("Surface area of the cylinder:", f"{res.squarefunc():.3f}",
+               "\nTotal amount of paint:", f"{res.paintfunc():.3f}")
     
 if __name__ == "__main__":
     main()
