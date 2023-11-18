@@ -7,6 +7,8 @@ name = "pypi"
 numpy = "*"
 matplotlib = "~=3.8"
 pandas = "~=2.1"
+httpx = "~=0.25"
+asyncio = "~=3.4"
 
 [dev-packages]
 pyinputplus = "*"
