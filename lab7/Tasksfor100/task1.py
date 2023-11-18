@@ -13,7 +13,6 @@ def test_trans() -> str:
 def mostcommon(str: str) -> dict:
     """task 2.2"""
     return dict(Counter(str.split()).most_common(1))
-# return dict(Counter(str.split()).most_common(len(str.split())))
 
 def orderedbykeys(str: str) -> dict:
     """task 2.3"""
