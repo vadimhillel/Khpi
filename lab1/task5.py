@@ -15,7 +15,7 @@ def main():
     
     s = int(a+b+c)/2
     Area = np.sqrt(s* (s-a)* (s-b)* (s-c))
-    print("s = ", s, "\nArea = %.3f" % Area)
+    print("s = ", s, f"\nArea = {Area:.3f}")
 
 if __name__ == "__main__":
     main()
