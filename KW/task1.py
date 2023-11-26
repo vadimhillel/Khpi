@@ -3,7 +3,7 @@ import math
 import numpy as np
 
 N = ord("V") % 5 + 1
-print("\n\tVariant: ", N)
+print(f"\n\tVariant: {N}\n")
 
 
 def my_func(interval: list, res: list) -> list:
