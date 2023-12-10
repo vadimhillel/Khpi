@@ -14,7 +14,9 @@ class NewConverter():
         
     @staticmethod
     def response_func(currency_from):
-        response = httpx.get(f"https://v6.exchangerate-api.com/v6/d57b4c08bb9102c88023d3f0/latest/{currency_from}")
+        # noqa
+        response = httpx.get(
+            f"https://v6.exchangerate-api.com/v6/d57b4c08bb9102c88023d3f0/latest/{currency_from}")
         r = response.json()
         return r
             
@@ -25,18 +27,21 @@ class NewConverter():
         
     def convert(self):
 
+        # noqa
         if (self._currency_from_et.get() == "" or self._currency_to_et.get() == "" or 
                 self._currency_from_et.get() == "" and self._currency_to_et.get() == ""):
             tkinter.messagebox.showinfo("Error !!",
                 "Currency Not Selected.\n Please enter FROM and TO Currency!")
-            
+        
+        # noqa
         elif (len(self._currency_from_et.get()) != 3 or len(self._currency_to_et.get()) != 3 or
         self._currency_from_et.get().isupper() is False or self._currency_to_et.get().isupper() is False):
             tkinter.messagebox.showinfo("Error !!",
                 "No such currency.\n Please enter FROM and TO Currency!")
         
         r = NewConverter.response_func(self._currency_from_et.get())
-            
+        
+        # noqa
         if (self._currency_from_et.get() not in r['conversion_rates'].keys() or 
             self._currency_to_et.get() not in r['conversion_rates'].keys()):
             tkinter.messagebox.showinfo("Error !!",
