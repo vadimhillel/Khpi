@@ -1,4 +1,4 @@
-from tkinter import *
+# from tkinter import *
 import asyncio
 import httpx
 import tkinter as tk
@@ -19,9 +19,9 @@ class NewConverter():
         return r
             
     def clear(self): 
-        self._currency_from_et.delete(0, END)
-        self._currency_to_et.delete(0, END)
-        self._amount_et.delete(0, END)
+        self._currency_from_et.delete(0, tk.END)
+        self._currency_to_et.delete(0, tk.END)
+        self._amount_et.delete(0, tk.END)
         
     def convert(self):
 
@@ -50,7 +50,7 @@ class NewConverter():
         rate = "{}".format(r['conversion_rates'][self._currency_to_et.get()])
         result = float("{:.4f}".format(amount *float(rate)))
 
-        res = Label(self._m, text =result,font='Helvetica 10 bold')
+        res = tk.Label(self._m, text =result,font='Helvetica 10 bold')
         res.grid(row=8, column=1)
     
 async def main():
@@ -59,15 +59,14 @@ async def main():
     m.geometry("350x200")
     m.eval('tk::PlaceWindow . center')
 
-    Label(m, text='From Currency :').grid(row=0)
-    Label(m, text=' To Currency :').grid(row=1)
-    Label(m, text='   Amount :').grid(row=2)
-    Label(m, text='Result :').grid(row=8)
-    label=Label(m, text =" ").grid(row=8, column=1)
+    tk.Label(m, text='From Currency :').grid(row=0)
+    tk.Label(m, text=' To Currency :').grid(row=1)
+    tk.Label(m, text='   Amount :').grid(row=2)
+    tk.Label(m, text='Result :').grid(row=8)
     
-    currency_from_et = Entry(m)
-    currency_to_et = Entry(m)
-    amount_et = Entry(m)
+    currency_from_et = tk.Entry(m)
+    currency_to_et = tk.Entry(m)
+    amount_et = tk.Entry(m)
 
     currency_from_et.grid(row=0, column=1)
     currency_to_et.grid(row=1, column=1)
