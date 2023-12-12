@@ -7,7 +7,7 @@ def main():
             n //= 10
             m -= 1
         else:
-            raise (ValueError, "n < 9999")
+            raise ValueError("n < 9999")
         print(sum_)
 
 if __name__ == "__main__":
