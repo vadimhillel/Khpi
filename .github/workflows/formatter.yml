@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     env: 
 #       CI_COMMIT_MESSAGE: ✅Done 🚀 git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}" 
-#       git config --global user.email "vadimfootball1304@gmail.com"
+#       git config --global user.email "magmail"
       CI_COMMIT_AUTHOR: ${{ github.event.repository.name }} Continuous Integration  
     steps:
       - uses: actions/checkout@v3
