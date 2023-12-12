@@ -1,4 +1,3 @@
-# from tkinter import *
 import asyncio
 import httpx
 import tkinter as tk
