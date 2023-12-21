@@ -67,7 +67,6 @@ class MyApplicants:
     # then, among other 900, choose first who is better than any from this 3%
     def strategy_10(self):
         top_3_percent_qualities = self._rankings[np.argsort(self._rankings[:100])[-3:]]
-        print(top_3_percent_qualities)
         index_of_better_prince = np.argmax(self._rankings[100:] > np.min(top_3_percent_qualities))
         return self._rankings[100 + index_of_better_prince]
 
