@@ -2,7 +2,6 @@ import numpy as np
 
 
 class Markov_process:
-    
     def __init__(self, transition_matrix: np.array, initial_state: list[np.array],
                  steps: int, stationary_step: int) -> None:
         self._transition_matrix = transition_matrix
@@ -38,7 +37,6 @@ class Markov_process:
             Markov_process.stationary_step(self)
             return self._stationary_step + initial_steps
         
-
 def main():
     # Define the transition matrix
     transition_matrix = np.array([[0.7, 0.1, 0.1, 0.1],

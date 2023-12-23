@@ -15,7 +15,7 @@ class Markov_process:
     
     def test_initial_state(self):
         return np.matmul(np.linalg.matrix_power(self._transition_matrix, 3), Markov_process.find_initial_state(self))
-        
+
 def main():
     # Define the transition matrix
     transition_matrix = np.array([[0.2, 0.3, 0.5],
@@ -30,7 +30,7 @@ def main():
 
     print("\nBy testing the code according to task1.py it's" + 
         f" being got {m.test_initial_state()} as the initial {state_after_3_steps}")
-    
+
 if __name__ == "__main__":
     main()
 
