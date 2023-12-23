@@ -27,7 +27,8 @@ def main():
     
     m: Markov_process = Markov_process(transition_matrix, state_after_3_steps)
     print("\nThe initial state is:", m.find_initial_state())
-
+    
+    # flake8: noqa
     print("\nBy testing the code according to task1.py it's" + 
         f" being got {m.test_initial_state()} as the initial {state_after_3_steps}")
 

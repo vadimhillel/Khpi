@@ -23,9 +23,11 @@ class Markov_process:
     
     def get_convergence_step(self):
         if self._stationary_step:
+            # flake8: noqa
             print("\nThe probability distribution of system states" +
                 f" becomes stationary after {self._stationary_step} steps.")
         else:
+            # flake8: noqa
             print("\nThe probability distribution does not reach a stationary" +
                 " state within the provided number of steps.")
             
