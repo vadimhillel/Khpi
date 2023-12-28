@@ -19,6 +19,7 @@ requests-cache = "*"
 mock = "*"
 beautifulsoup4 = "*"
 forex-python = "*"
+scikit-learn = "*"
 
 [requires]
 python_version = "3.11"
