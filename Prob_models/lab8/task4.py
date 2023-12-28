@@ -11,8 +11,8 @@ class Mss:
         
 def main():
     m: Mss = Mss(20, 6)
-    print(f"\nThe service intensity is {m.service_intensity():.2f}" +
-          f" and relative throughput is: {m.relative_throughput()}")
+    print(f"\nThe service intensity is {m.service_intensity():.2f}"
+          + f" and relative throughput is: {m.relative_throughput()}")
     
 if __name__ == "__main__":
     main()
