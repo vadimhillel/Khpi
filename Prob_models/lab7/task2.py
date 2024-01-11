@@ -1,6 +1,6 @@
 import numpy as np
 
-class Task3:
+class Task2:
     
     def __init__(self, lambda_values: np.array, states: list[str]) -> None:
         self._lambda_values = lambda_values
@@ -27,20 +27,26 @@ class Task3:
     
     def display_p(self):
         """The marginal probabilities of the states"""
-        
+        p = Task2.function(self)
         print("\nStationary distribution:")
         for i, state in enumerate(self._states):
-            print(f"{state}: {Task3.function(self)[i]}")
+            print(f"{state}: {p[i]}")
+            s4 = p[3] * (100 / (p[2] + p[3]))
+        # flake8: noqa
+        print("\nThe average costs of paying for repairs at the" +
+              "service center per unit of time (per day) = {:.2f} * (k * 24)".format(s4))
 
 def main():
-    lambda_values = np.array([[0, 1/12, 0, 0],
-              [0, 0, 2, 0],
-              [0, 0, 0, 1/6],
-              [1, 0, 0, 0]])
+    lambda_values = np.array([
+        [0, 1/12, 0, 0, 0],
+        [0, 0, 2, 2, 0],
+        [0, 0, 0, 0, 1/3],
+        [0, 0, 0, 0, 1/8],
+        [1, 0, 0, 0, 0]])
 
-    states = ["S1", "S2", "S3", "S4"]
+    states = ["S1", "S2", "S3", "S4", "S5"]
     
-    t: Task3 = Task3(lambda_values, states)
+    t: Task2 = Task2(lambda_values, states)
     t.display_p()
     
 if __name__ == "__main__":

@@ -10,6 +10,9 @@ pandas = "~=2.1"
 httpx = "~=0.25"
 asyncio = "~=3.4"
 pyinstaller = "*"
+networkx = "*"
+pygame = "*"
+sympy = "*"
 
 [dev-packages]
 pyinputplus = "*"
@@ -23,3 +26,4 @@ scikit-learn = "*"
 
 [requires]
 python_version = "3.11"
+
