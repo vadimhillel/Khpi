@@ -1,5 +1,3 @@
-import matplotlib.pyplot as plt
-import networkx as nx
 import numpy as np
 
 class Task3:
@@ -30,43 +28,20 @@ class Task3:
     def display_p(self):
         """The marginal probabilities of the states"""
         
-        print("Stationary distribution:")
+        print("\nStationary distribution:")
         for i, state in enumerate(self._states):
             print(f"{state}: {Task3.function(self)[i]}")
-            
-    def display_plt(self):
-        """Construct a labeled state graph"""
-        
-        G = nx.DiGraph()
-        G.add_nodes_from(self._states)
-
-        edges = [
-            (self._states[i], self._states[j], self._lambda_values[i][j])
-            for i in range(len(self._states))
-            for j in range(len(self._states))
-            if self._lambda_values[i][j] != 0
-        ]
-        G.add_weighted_edges_from(edges)
-
-        pos = nx.planar_layout(G)
-        nx.draw_networkx(G,pos)
-        labels = nx.get_edge_attributes(G,'weight')
-        nx.draw_networkx_edge_labels(G, pos, label_pos=0.5, 
-                                     edge_labels=labels)
-        plt.show()
-
 
 def main():
-    lambda_values = np.array([[0, 1/2, 0, 0],
-              [0, 0, 6, 0],
-              [0, 0, 0, 1],
-              [12, 0, 0, 0]])
+    lambda_values = np.array([[0, 1/12, 0, 0],
+              [0, 0, 2, 0],
+              [0, 0, 0, 1/6],
+              [1, 0, 0, 0]])
 
     states = ["S1", "S2", "S3", "S4"]
     
     t: Task3 = Task3(lambda_values, states)
     t.display_p()
-    t.display_plt()
     
 if __name__ == "__main__":
     main()
