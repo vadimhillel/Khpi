@@ -6,8 +6,10 @@ class User(object):
     
     @staticmethod
     def validator(other, amount) -> None | ValueError:
-        if not other.checking_account | other.balance - amount > 0:
+        if not other.checking_account:
             raise ValueError("{}'s checking account is disabled.".format(other.name))
+        elif not other.balance - amount > 0:
+            raise ValueError("{} can't withdraw {}, he only has {}.".format(other.name, amount, other.balance))
         
     def withdraw(self, amount: int) -> str:
         User.validator(self, amount)
