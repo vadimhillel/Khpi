@@ -14,7 +14,7 @@ def validate_types(func):
             # Skip type checking if the annotation is Any or not provided
             if param_annotation == inspect.Parameter.empty or param_annotation == typing.Any:
                 continue
-            
+            # noqa: flake8
             # Perform type checking
             if not isinstance(param_value, param_annotation):
                 raise TypeError(f"Parameter '{param_name}' expected type '{param_annotation}', got '{type(param_value)}'")

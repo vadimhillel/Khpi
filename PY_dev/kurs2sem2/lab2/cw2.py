@@ -1,6 +1,3 @@
-from type_check import *
-
-@validate_types
 class List:
     def __init__(self, type: type) -> None:
         self.type = type
