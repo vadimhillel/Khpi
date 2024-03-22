@@ -13,6 +13,15 @@ pyinstaller = "*"
 networkx = "*"
 pygame = "*"
 sympy = "*"
+binance-connector = "*"
+
+#django packages
+django = "~=5.0"
+djangorestframework = "~=3.14"
+djangorestframework-simplejwt = "~=5.3"
+django-filter = "~=23.5" 
+gunicorn = "~=21.2"
+celery = {version = "==5.3.6", extras = ["redis"]}
 
 [dev-packages]
 pyinputplus = "*"
@@ -23,7 +32,11 @@ mock = "*"
 beautifulsoup4 = "*"
 forex-python = "*"
 scikit-learn = "*"
+seaborn = "*"
+ccxt = "*"
+
+#django dev-pack
+drf-yasg = "~= 1.21"
 
 [requires]
 python_version = "3.11"
-
