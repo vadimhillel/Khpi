@@ -3,7 +3,7 @@ import typing
 
 def validate_types(func):
     signature = inspect.signature(func)
-    
+     # noqa: flake8
     def wrapper(*args, **kwargs):
         bound_arguments = signature.bind(*args, **kwargs)
         bound_arguments.apply_defaults()
@@ -12,12 +12,10 @@ def validate_types(func):
             param_annotation = signature.parameters[param_name].annotation
             
             # Skip type checking if the annotation is Any or not provided
-            # noqa: flake8
             if param_annotation == inspect.Parameter.empty or param_annotation == typing.Any:
                 continue
             
             # Perform type checking
-            # noqa: flake8
             if not isinstance(param_value, param_annotation):
                 raise TypeError(f"Parameter '{param_name}' expected type '{param_annotation}', got '{type(param_value)}'")
         
