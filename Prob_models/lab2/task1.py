@@ -82,6 +82,13 @@ class MyApplicants:
                 test_princes = np.random.choice(self._rankings, size=100, replace=False)
                 best_test_prince = np.max(test_princes)
                 better_than_best_test = [rank for rank in self._rankings if rank > best_test_prince]
+        # while True:
+        #     try:
+        #         return np.min(better_than_best_test)
+        #     except:
+        #         test_princes = np.random.choice(self._rankings, size=100, replace=False)
+        #         best_test_prince = np.max(test_princes)
+        #         better_than_best_test = [rank for rank in self._rankings if rank > best_test_prince]
 
     # Strategy 12: Select the First Prince Better Than Half Rank
     def strategy_12(self):
