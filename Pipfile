@@ -22,6 +22,8 @@ djangorestframework-simplejwt = "~=5.3"
 django-filter = "~=23.5" 
 gunicorn = "~=21.2"
 celery = {version = "==5.3.6", extras = ["redis"]}
+jupyterlab = "~=4.1"
+ipython = "~=8.22"
 
 [dev-packages]
 pyinputplus = "*"
@@ -34,9 +36,9 @@ forex-python = "*"
 scikit-learn = "*"
 seaborn = "*"
 ccxt = "*"
-
 #django dev-pack
 drf-yasg = "~= 1.21"
+ipykernel = "*"
 
 [requires]
 python_version = "3.11"
