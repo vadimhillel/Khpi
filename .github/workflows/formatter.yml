@@ -1,36 +1,76 @@
 name: action
-on: [push, pull_request]
-jobs:
-  linter_name:
-    name: runner, formatter
-    runs-on: ubuntu-latest
-    env: 
-#       CI_COMMIT_MESSAGE: ✅Done 🚀 git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}" 
-#       git config --global user.email "gmail"
-      CI_COMMIT_AUTHOR: ${{ github.event.repository.name }} Continuous Integration  
-    steps:
-      - uses: actions/checkout@v3
 
-      - uses: rickstaa/action-black@v1
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  linter_job:
+    name: Formatter & Linter
+    runs-on: ubuntu-latest
+    env:
+      CI_COMMIT_AUTHOR: ${{ github.event.repository.name }} Continuous Integration
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Format code with black
+        uses: rickstaa/action-black@v1
         with:
-          black_args: "."
-      
-      - uses: py-actions/flake8@v2
+          black_args: "--exclude tests/ ."
+
+      - name: Lint code with Flake8
+        uses: py-actions/flake8@v2
         with:
-          ignore: "F401"
+          ignore: "F401,W503,E501"
           max-line-length: "120"
-      
+
       - name: Check for modified files
         id: git-check
-        run: echo "modified=$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)" >> $GITHUB_OUTPUT
-      - name: Display event name 
+        run: |
+          modified=$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
+          echo "modified=$modified" >> $GITHUB_ENV
+
+      - name: Display event name
         run: echo "github.event_name=${{ github.event_name }}"
-      # - name: Push
-      #   # Don't run again on already pushed auto commit. Don't run on pull request events.
+        # Displaying event name for debugging purposes
+
+      # Notification step if linting or formatting failed
+      - name: Notify on linting/formatting failure
+        if: ${{ failure() }}
+        run: echo "Formatting | linting failed. Review the changes."
+
+      # Uncomment the following block if you want to automatically push changes
+      # - name: Push changes
       #   if: env.is-auto-commit == false && github.event_name != 'pull_request'
       #   run: |
       #     git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
       #     git push
+
+      - name: Comment on pull request
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const response = await github.rest.pulls.listFiles({ owner: context.repo.owner, repo: context.repo.repo, pull_number: context.issue.number });
+            const files = response.data.map(file => file.filename);
+            const modifiedFiles = files.filter(file => file.includes('.py') && file.startsWith('app/'));
+            
+            if (modifiedFiles.length > 0) {
+              const body = `Linting found issues in the following files:\n${modifiedFiles.join('\n')}\n\nPlease review and fix the issues.`;
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: body
+              });
+            }
 
 
 
