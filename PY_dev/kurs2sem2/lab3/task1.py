@@ -76,8 +76,8 @@ class Triangle:
         return "A = {}, B = {}, C = {}".format(self.a, self.b, self.c)
 
 
-triangle = Triangle(Point(-3, 6), Point(-3, 2), Point(3,2))
-triangle = Triangle(Point(-3, 6), Point(-3, 2))
+# triangle = Triangle(Point(-3, 6), Point(-3, 2), Point(3,2))
+# triangle = Triangle(Point(-3, 6), Point(-3, 2))
 triangle = Triangle(Point(-3, 6), Point(-3, 2), Point(-3, 2))
 print(triangle)
 print(triangle.area())
