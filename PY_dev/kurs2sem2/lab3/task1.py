@@ -1,4 +1,5 @@
-N = ord('V') % 3 + 1 # -> 3
+N = ord('V') % 3 + 1  # -> 3
+
 
 """
 TASK
@@ -8,18 +9,18 @@ TASK
     Constructor that accepts x and y coordinates as parameters;
     __str__ method for representing class objects as a string.
 
-2) Create a special exception class WrongDataError that outputs the message 
-"This points create a degenerate triangle" when all points lie on the same 
+2) Create a special exception class WrongDataError that outputs the message
+"This points create a degenerate triangle" when all points lie on the same
 line (the area of the triangle is 0)
 
-3) Create a custom MissingParameterError exception class that will 
-throw a "Missing parameter" message when a Triangle instance is 
+3) Create a custom MissingParameterError exception class that will
+throw a "Missing parameter" message when a Triangle instance is
 created with only one or two arguments.
 
 4) Create a Triangle class with the following methods:
-    
+
     Constructor with 3 vertices as parameters. All vertices are instances of the Point class.
-    
+
     Make sure that the generated triangle exists and is not degenerate,
 that is, the area of the triangle is not equal to 0. If the triangle
 degenerate, raise a WrongDataError exception.
@@ -34,21 +35,25 @@ Returns the perimeter rounded to 3 decimal places
 The method represents the objects of the class as a string.
 """
 
+
 class Point:
     def __init__(self, x: float, y: float):
         self.x = x
         self.y = y
-        
+
     def __str__(self) -> str:
         return f"({self.x}, {self.y})"
-    
+
+
 class WrongDataError(Exception):
     def __init__(self, message="This points create a degenerate triangle"):
         super().__init__(message)
 
+
 class MissingParameterError(Exception):
     def __init__(self, message="Missing parameter"):
         super().__init__(message)
+
 
 class Triangle:
     def __init__(self, a: Point = None, b: Point = None, c: Point = None):
@@ -58,7 +63,7 @@ class Triangle:
         area = self.area()
         if abs(area) == 0:
             raise WrongDataError()
-    
+
     @staticmethod
     def _distance(p1: Point, p2: Point) -> float:
         return ((p2.x - p1.x) ** 2 + (p2.y - p1.y) ** 2) ** 0.5
