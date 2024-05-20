@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 50%;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        td {
+            padding: 20px;
+            text-align: left;
+        }
+        th {
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+    <div class="container mt-5">
+        <table>
+            <tr>
+                <th>Пляка</th>
+                <th>Вадим</th>
+                <th>Вікторович</th>
+            </tr>
+            <tr>
+                <td>Навчально-науковий інститут комп'ютерних наук та інформаційних технологій</td>
+                <td>Software engineering</td>
+                <td>121</td>
+            </tr>
+            <tr>
+                <td>Дані</td>
+                <td>Дані</td>
+                <td>Дані</td>
+            </tr>
+        </table>
+    {% endblock %}
+</body>
+</html>
