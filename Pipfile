@@ -4,6 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+#Main
+stripe = "~=9.7"
+
+#Algos
 numpy = "*"
 matplotlib = "~=3.8"
 pandas = "~=2.1"
@@ -13,29 +17,38 @@ pyinstaller = "*"
 networkx = "*"
 pygame = "*"
 sympy = "*"
-binance-connector = "*"
+scikit-learn = "*"
+seaborn = "*"
 
 #django packages
 django = "~=5.0"
-djangorestframework = "~=3.14"
+djangorestframework = "~=3.15"
 djangorestframework-simplejwt = "~=5.3"
-django-filter = "~=23.5" 
-gunicorn = "~=21.2"
-celery = {version = "==5.3.6", extras = ["redis"]}
+django-filter = "~=24.2" 
+gunicorn = "~=22.0"
+celery = {version = "==5.4", extras = ["redis"]}
+
+#Jup Note
 jupyterlab = "~=4.1"
 ipython = "~=8.22"
+
+#Mysql
+mysqlclient = "~=2.2"
 
 [dev-packages]
 pyinputplus = "*"
 requests = "*"
-flake8 = "*"
 requests-cache = "*"
+
+flake8 = "*"
 mock = "*"
 beautifulsoup4 = "*"
+
+#Crypto
+binance-connector = "*"
 forex-python = "*"
-scikit-learn = "*"
-seaborn = "*"
 ccxt = "*"
+
 #django dev-pack
 drf-yasg = "~= 1.21"
 ipykernel = "*"

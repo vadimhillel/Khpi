@@ -1,0 +1,1 @@
+([('gui', '/Users/thegreatest/PyFolder/Khpi/dist/gui', 'EXECUTABLE')],)

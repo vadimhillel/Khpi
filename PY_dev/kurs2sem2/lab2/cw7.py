@@ -33,7 +33,7 @@ print(Jeff.withdraw(2)) # Returns 'Jeff has 68.'
 
 print(Joe.check(Jeff, 50)) # Returns 'Joe has 120 and Jeff has 18.'
 
-print(Jeff.check(Joe, 80)) # Raises a ValueError
+# print(Jeff.check(Joe, 80)) # Raises a ValueError
 
 Joe.checking_account = True # Enables checking for Joe
 
