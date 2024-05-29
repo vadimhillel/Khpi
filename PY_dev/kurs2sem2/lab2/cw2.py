@@ -13,4 +13,7 @@ class List:
             self.count += 1
             return self
 
-my_list=List(str)
+my_list=List(int)
+my_list.add(0).add(1)
+
+print(my_list.count)

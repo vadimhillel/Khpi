@@ -7,3 +7,6 @@ class ReNameAbleClass(object):
     @classmethod
     def __str__(cls):
         return f"Class name is: {cls.__name__}"
+    
+ReNameAbleClass.change_class_name('Newname')
+print(str(ReNameAbleClass()))
