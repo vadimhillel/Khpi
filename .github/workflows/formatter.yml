@@ -1,4 +1,4 @@
-name: action
+name: CI Workflow
 
 on:
   push:
@@ -9,17 +9,39 @@ on:
       - main
 
 jobs:
-  linter_job:
-    name: Formatter & Linter
+  build_and_lint:
     runs-on: ubuntu-latest
     env:
       CI_COMMIT_AUTHOR: ${{ github.event.repository.name }} Continuous Integration
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Format code with black
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.18.x"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pipenv
+          pipenv install --dev  # Replaces `pip install -r requirements.txt`
+      
+      - name: Install Node dependencies
+        run: npm install
+
+      - name: Copy .env file
+        run: cp .env.example .env
+
+      - name: Format code with Black
         uses: rickstaa/action-black@v1
         with:
           black_args: "--exclude tests/ ."
@@ -30,6 +52,15 @@ jobs:
           ignore: "F401,W503,E501"
           max-line-length: "120"
 
+      - name: Run Node lints
+        run: npm run lint
+
+      - name: Run Python lints
+        run: flask lint --check
+
+      - name: Run Python tests
+        run: flask test
+
       - name: Check for modified files
         id: git-check
         run: |
@@ -38,14 +69,12 @@ jobs:
 
       - name: Display event name
         run: echo "github.event_name=${{ github.event_name }}"
-        # Displaying event name for debugging purposes
-
-      # Notification step if linting or formatting failed
+      
       - name: Notify on linting/formatting failure
         if: ${{ failure() }}
         run: echo "Formatting | linting failed. Review the changes."
 
-      # Uncomment the following block if you want to automatically push changes
+      # Uncomment to enable automatic pushing if needed
       # - name: Push changes
       #   if: env.is-auto-commit == false && github.event_name != 'pull_request'
       #   run: |
@@ -71,9 +100,3 @@ jobs:
                 body: body
               });
             }
-
-
-
-
-
-

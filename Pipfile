@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 #Main
 stripe = "~=9.7"
-
+python-dotenv = "~=1.0"
 #Algos
 numpy = "*"
 matplotlib = "~=3.8"
@@ -19,7 +19,10 @@ pygame = "*"
 sympy = "*"
 scikit-learn = "*"
 seaborn = "*"
-
+matplotlib-venn = "~=0.11"
+graphviz = "~=0.20"
+#--NN
+tensorflow = "~=2.16"
 #django packages
 django = "~=5.0"
 djangorestframework = "~=3.15"
@@ -27,28 +30,29 @@ djangorestframework-simplejwt = "~=5.3"
 django-filter = "~=24.2" 
 gunicorn = "~=22.0"
 celery = {version = "==5.4", extras = ["redis"]}
-
+#flask packages
+flask = "*"
+flask-migrate = "*"
+flask-restful = "*"
 #Jup Note
 jupyterlab = "~=4.1"
 ipython = "~=8.22"
-
 #Mysql
 mysqlclient = "~=2.2"
+cookiecutter = "*"
 
 [dev-packages]
+#Main
 pyinputplus = "*"
 requests = "*"
 requests-cache = "*"
-
 flake8 = "*"
 mock = "*"
 beautifulsoup4 = "*"
-
 #Crypto
 binance-connector = "*"
 forex-python = "*"
 ccxt = "*"
-
 #django dev-pack
 drf-yasg = "~= 1.21"
 ipykernel = "*"
