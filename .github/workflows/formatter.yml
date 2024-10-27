@@ -32,8 +32,8 @@ jobs:
       # - name: Install Node dependencies
       #   run: npm install
 
-      - name: Copy .env file
-        run: cp .env.example .env
+      # - name: Copy .env file
+      #   run: cp .env.example .env
 
       - name: Format code with Black
         uses: rickstaa/action-black@v1
