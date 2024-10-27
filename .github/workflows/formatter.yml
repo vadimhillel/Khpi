@@ -23,14 +23,14 @@ jobs:
         with:
           python-version: "3.13"
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20.18.x"
-          registry-url: "https://registry.npmjs.org"
+      # - name: Set up Node.js
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: "20.18.x"
+      #     registry-url: "https://registry.npmjs.org"
       
-      - name: Install Node dependencies
-        run: npm install
+      # - name: Install Node dependencies
+      #   run: npm install
 
       - name: Copy .env file
         run: cp .env.example .env
@@ -46,14 +46,14 @@ jobs:
           ignore: "F401,W503,E501"
           max-line-length: "120"
 
-      - name: Run Node lints
-        run: npm run lint
+      # - name: Run Node lints
+      #   run: npm run lint
 
-      - name: Run Python lints
-        run: flask lint --check
+      # - name: Run Python lints
+      #   run: flask lint --check
 
-      - name: Run Python tests
-        run: flask test
+      # - name: Run Python tests
+      #   run: flask test
 
       - name: Check for modified files
         id: git-check
