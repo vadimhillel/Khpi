@@ -35,7 +35,7 @@ flask = "*"
 flask-migrate = "*"
 flask-restful = "*"
 #Jup Note
-jupyterlab = "~=4.1"
+jupyterlab = "~=4.3"
 ipython = "~=8.22"
 #Mysql
 mysqlclient = "~=2.2"
