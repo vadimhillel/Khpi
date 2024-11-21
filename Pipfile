@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 #Main
-stripe = "~=9.7"
+stripe = "~=11.3"
 python-dotenv = "~=1.0"
 #Algos
 numpy = "*"
